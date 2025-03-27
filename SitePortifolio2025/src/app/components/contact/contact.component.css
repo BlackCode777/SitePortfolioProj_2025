@@ -1,0 +1,18 @@
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  box-shadow: none;
+}
+
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form textarea::placeholder {
+  color: #999;
+}
+
+.call-to-action {
+  color: #ffffff; /* Troque para a cor que você preferir */
+}

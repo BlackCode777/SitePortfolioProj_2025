@@ -1,0 +1,47 @@
+<section id="Contato" class="wrapper style4">
+  <div class="container">
+    <header>
+      <h2>Entre em contato</h2>
+      <p class="call-to-action">
+        Gostou do que viu? Manda uma mensagem ou fale direto pelo Whatsapp!
+      </p>
+    </header>
+
+    <form method="post" action="#" (submit)="onSubmit($event)">
+      <div class="row gtr-50">
+        <div class="col-6 col-12-small">
+          <input
+            name="name"
+            placeholder="Nome"
+            type="text"
+            required
+            [(ngModel)]="nome"
+          />
+        </div>
+        <div class="col-6 col-12-small">
+          <input
+            name="email"
+            placeholder="Email"
+            type="email"
+            required
+            [(ngModel)]="email"
+          />
+        </div>
+        <div class="col-12">
+          <textarea
+            name="message"
+            placeholder="Mensagem"
+            rows="5"
+            required
+            [(ngModel)]="mensagem"
+          ></textarea>
+        </div>
+        <div class="col-12">
+          <ul class="actions">
+            <li><input type="submit" value="Enviar" class="button" /></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

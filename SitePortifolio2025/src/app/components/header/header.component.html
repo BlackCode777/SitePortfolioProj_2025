@@ -1,0 +1,9 @@
+<nav id="nav">
+  <ul>
+    <li *ngFor="let section of sections">
+      <a [class.active]="activeSection === section" (click)="scrollTo(section)">
+        {{ section | titlecase }}
+      </a>
+    </li>
+  </ul>
+</nav>
