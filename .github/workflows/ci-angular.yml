@@ -30,11 +30,11 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Verificar se package.json está presente
-        working-directory: site-portifolio-proj-2025/SitePortifolio2025
+        working-directory: SitePortifolio2025/SitePortifolio2025
         run: ls -la && cat package.json
 
       - name: Instalar dependências
-        working-directory: site-portifolio-proj-2025/SitePortifolio2025
+        working-directory: SitePortifolio2025/SitePortifolio2025
         run: npm install
 
       - name: Build do Angular (modo produção)
@@ -49,4 +49,4 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: site-portifolio-proj-2025/SitePortifolio2025/dist/site-portifolio2025
+          SOURCE_DIR: SitePortifolio2025/dist/site-portfolio2025
