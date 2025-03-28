@@ -21,14 +21,6 @@ jobs:
         with:
           node-version: 18  # Versão LTS compatível com Angular 19
 
-      - name: Cache de dependências
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Instalar dependências
         working-directory: SitePortifolio2025
         run: npm install
