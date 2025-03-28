@@ -32,12 +32,17 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Instalar dependências
-        working-directory: SitePortifolio2025
-        run: npm ci
+        run: |
+          echo "Executando npm install na pasta correta"
+          cd SitePortifolio2025
+          pwd
+          ls -la
+          npm install
 
       - name: Build do Angular (modo produção)
-        working-directory: SitePortifolio2025
-        run: npm run build -- --configuration production
+        run: |
+          cd SitePortifolio2025
+          npm run build -- --configuration production
 
       - name: Deploy para AWS S3
         uses: jakejarvis/s3-sync-action@v0.5.1
