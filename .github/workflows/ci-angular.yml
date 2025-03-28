@@ -13,6 +13,9 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
+      - name: Definir diretório de trabalho correto
+        run: "echo 'Diretório atual: $(pwd)'"
+
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,11 +30,11 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Instalar dependências
-        working-directory: SitePortifolio2025
+        working-directory: ./SitePortifolio2025
         run: npm install
 
       - name: Build do Angular (modo produção)
-        working-directory: SitePortifolio2025
+        working-directory: ./SitePortifolio2025
         run: npm run build -- --configuration production
 
       - name: Deploy para AWS S3
