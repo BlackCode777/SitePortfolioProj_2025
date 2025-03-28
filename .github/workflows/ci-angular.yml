@@ -13,17 +13,27 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Definir diretório de trabalho correto
-        run: 'echo "Diretório atual: $(pwd)"'
+      - name: Exibir diretório atual
+        run: |
+          echo "Diretório atual: $(pwd)"
+          ls -la
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Versão LTS compatível com Angular 19
+          node-version: 18 # Compatível com Angular 19
+
+      - name: Cache de dependências
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('SitePortifolio2025/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Instalar dependências
         working-directory: SitePortifolio2025
-        run: npm install
+        run: npm ci
 
       - name: Build do Angular (modo produção)
         working-directory: SitePortifolio2025
@@ -37,4 +47,4 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: site-portifolio-proj-2025/SitePortifolio2025/dist/site-portfolio2025
+          SOURCE_DIR: SitePortifolio2025/dist/site-portfolio2025
