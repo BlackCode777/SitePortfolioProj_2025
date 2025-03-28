@@ -27,12 +27,12 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Instalar dependências
-        working-directory: S3AWS
+        working-directory: SitePortifolio2025
         run: npm install
 
       - name: Build do Angular (modo produção)
-        working-directory: S3AWS
-        run: npm run build
+        working-directory: SitePortifolio2025
+        run: npm run build -- --configuration production
 
       - name: Deploy para AWS S3
         uses: jakejarvis/s3-sync-action@v0.5.1
@@ -42,5 +42,5 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SOURCE_DIR: S3AWS/dist/site-portifolio2025
+          SOURCE_DIR: SitePortifolio2025/dist/site-portifolio2025
           
