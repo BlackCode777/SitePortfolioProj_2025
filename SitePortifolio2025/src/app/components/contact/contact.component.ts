@@ -4,13 +4,15 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Contato } from '../../model/contato.model';
 import { ContatoService } from '../../service/contato.service';
+import { InfoLGPDComponent } from "../LGPD/info-lgpd/info-lgpd.component";
 
 @Component({
   selector: 'app-contact',
   imports: [
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    InfoLGPDComponent
   ],
   providers: [
     ContatoService
@@ -24,11 +26,17 @@ export class ContactComponent {
   email: string = '';
   mensagem: string = '';
 
+  showLGPDModal: boolean = false;
+
   constructor(
     private contatoService: ContatoService
   ) { }
 
   ngOnInit() { }
+
+  openLGPDModal() {
+    this.showLGPDModal = true;
+  }
 
   sendEmail() {
     const contato: Contato = new Contato(this.nome, this.email, this.mensagem);

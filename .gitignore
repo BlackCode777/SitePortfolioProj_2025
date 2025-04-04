@@ -9,3 +9,5 @@ yarn-error.log*
 /templateModelo/
 package-lock.json
 package.json
+
+src/**/dist/

@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, EventEmitter, Inject, Output, PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +9,14 @@ import { Component, Inject, PLATFORM_ID } from '@angular/core';
 })
 export class HeaderComponent {
 
-  activeSection: string = 'Topo';
-  sections = ['Topo', 'Sobre', 'Contato'];
+  @Output() lgpdClick = new EventEmitter<void>();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+  activeSection: string = 'Topo';
+  sections = ['Topo', 'Sobre', 'Contato', 'LGPD'];
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) { }
 
   ngOnInit(): void { }
 
@@ -34,9 +38,21 @@ export class HeaderComponent {
   }
 
   scrollTo(id: string) {
+    if (id === 'LGPD') {
+      this.lgpdClick.emit(); // dispara evento para abrir modal
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      setTimeout(() => {
+        const delayedEl = document.getElementById(id);
+        if (delayedEl) {
+          delayedEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
   }
 

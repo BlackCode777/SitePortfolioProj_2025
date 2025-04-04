@@ -1,10 +1,17 @@
-/* Estiliza a imagem de perfil */
 img[alt="FotoPerfilNaPraia"] {
-  border-radius: 50%; /* deixa a imagem redonda */
-  width: 250px; /* largura fixa para manter o layout bonito */
-  height: 250px; /* altura igual à largura para manter o círculo */
-  object-fit: cover; /* mantém o foco no centro da imagem */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* sombra suave */
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
   display: block;
+}
+
+p {
+  font-size: 24px;
+  color: #333;
+  line-height: 1.5;
+  margin: 10px 0;
+  margin-bottom: 2em;
 }

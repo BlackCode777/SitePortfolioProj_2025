@@ -15,8 +15,9 @@ var core_1 = require("@angular/core");
 var HeaderComponent = /** @class */ (function () {
     function HeaderComponent(platformId) {
         this.platformId = platformId;
+        this.lgpdClick = new core_1.EventEmitter();
         this.activeSection = 'Topo';
-        this.sections = ['Topo', 'Sobre', 'Contato'];
+        this.sections = ['Topo', 'Sobre', 'Contato', 'LGPD'];
     }
     HeaderComponent.prototype.ngOnInit = function () { };
     HeaderComponent.prototype.ngAfterViewInit = function () {
@@ -37,11 +38,26 @@ var HeaderComponent = /** @class */ (function () {
         }
     };
     HeaderComponent.prototype.scrollTo = function (id) {
+        if (id === 'LGPD') {
+            this.lgpdClick.emit(); // dispara evento para abrir modal
+            return;
+        }
         var el = document.getElementById(id);
         if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        else {
+            setTimeout(function () {
+                var delayedEl = document.getElementById(id);
+                if (delayedEl) {
+                    delayedEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
     };
+    __decorate([
+        core_1.Output()
+    ], HeaderComponent.prototype, "lgpdClick");
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'app-header',

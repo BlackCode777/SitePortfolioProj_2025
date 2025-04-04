@@ -6,21 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.ContatoService = void 0;
+exports.InfoLGPDComponent = void 0;
 var core_1 = require("@angular/core");
-var ContatoService = /** @class */ (function () {
-    function ContatoService(http) {
-        this.http = http;
-        this.apiServer = 'http://localhost:8080/siteportifolio-serviceemail/contact/send';
+var InfoLGPDComponent = /** @class */ (function () {
+    function InfoLGPDComponent() {
+        this.close = new core_1.EventEmitter();
     }
-    ContatoService.prototype.sendEmail = function (contato) {
-        return this.http.post(this.apiServer, contato);
+    InfoLGPDComponent.prototype.closeModal = function () {
+        this.close.emit();
     };
-    ContatoService = __decorate([
-        core_1.Injectable({
-            providedIn: 'root'
+    __decorate([
+        core_1.Output()
+    ], InfoLGPDComponent.prototype, "close");
+    InfoLGPDComponent = __decorate([
+        core_1.Component({
+            selector: 'app-info-lgpd',
+            imports: [],
+            templateUrl: './info-lgpd.component.html',
+            styleUrl: './info-lgpd.component.css'
         })
-    ], ContatoService);
-    return ContatoService;
+    ], InfoLGPDComponent);
+    return InfoLGPDComponent;
 }());
-exports.ContatoService = ContatoService;
+exports.InfoLGPDComponent = InfoLGPDComponent;

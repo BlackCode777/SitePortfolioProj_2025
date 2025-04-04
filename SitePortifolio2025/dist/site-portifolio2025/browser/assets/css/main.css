@@ -1773,7 +1773,9 @@ ul.actions li:first-child {
 .wrapper.style4 form input[type="password"]:focus,
 .wrapper.style4 form select:focus,
 .wrapper.style4 form textarea:focus {
-  background: #252525;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
 }
 
 /* Nav */
