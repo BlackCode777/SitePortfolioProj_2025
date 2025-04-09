@@ -1,0 +1,82 @@
+.bouncer-container {
+  position: relative;
+  width: 100%;
+  overflow: visible; /* Antes: hidden */
+  /* background: linear-gradient(to top, #ffffff, #ffffff); */
+  border-radius: 20px;
+  margin-top: 5em;
+}
+
+.logo {
+  width: 70px;
+  height: 80px;
+  border-radius: 50%;
+  animation: quica 0.8s infinite alternate cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+/* Delay para cada bolinha não quicar ao mesmo tempo */
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-1 {
+  animation-delay: 0.2s;
+}
+.delay-2 {
+  animation-delay: 0.4s;
+}
+.delay-3 {
+  animation-delay: 0.6s;
+}
+.delay-4 {
+  animation-delay: 0.8s;
+}
+.delay-5 {
+  animation-delay: 1s;
+}
+.delay-6 {
+  animation-delay: 1.2s;
+}
+.delay-7 {
+  animation-delay: 1.4s;
+}
+.delay-8 {
+  animation-delay: 1.6s;
+}
+.delay-9 {
+  animation-delay: 1.8s;
+}
+.delay-10 {
+  animation-delay: 2s;
+}
+.delay-11 {
+  animation-delay: 2.2s;
+}
+.delay-12 {
+  animation-delay: 2.4s;
+}
+.delay-13 {
+  animation-delay: 2.6s;
+}
+.delay-14 {
+  animation-delay: 2.8s;
+}
+.delay-15 {
+  animation-delay: 3s;
+}
+.delay-16 {
+  animation-delay: 3.2s;
+}
+
+@keyframes quica {
+  0% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+
+  50% {
+    transform: translateY(80px) scaleX(1.1) scaleY(0.9); /* achatamento */
+  }
+
+  100% {
+    transform: translateY(0) scaleX(1) scaleY(1.05); /* estica levemente no ar */
+  }
+}
