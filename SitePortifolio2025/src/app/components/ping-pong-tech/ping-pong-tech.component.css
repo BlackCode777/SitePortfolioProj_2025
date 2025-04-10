@@ -1,15 +1,29 @@
+.pacman {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  z-index: 30;
+}
+
+.logo.eaten {
+  animation: none !important;
+  pointer-events: none;
+}
+
 .bouncer-container {
   position: relative;
   width: 100%;
-  overflow: visible; /* Antes: hidden */
-  /* background: linear-gradient(to top, #ffffff, #ffffff); */
+  overflow: visible;
   border-radius: 20px;
-  margin-top: 5em;
+  margin-top: 6em;
+  margin-bottom: 0.5em;
 }
 
 .logo {
-  width: 70px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   animation: quica 0.8s infinite alternate cubic-bezier(0.5, 0, 0.5, 1);
 }
