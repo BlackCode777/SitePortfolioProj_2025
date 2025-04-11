@@ -26,17 +26,11 @@ export class ContactComponent {
   email: string = '';
   mensagem: string = '';
 
-  showLGPDModal: boolean = false;
-
   constructor(
     private contatoService: ContatoService
   ) { }
 
   ngOnInit() { }
-
-  openLGPDModal() {
-    this.showLGPDModal = true;
-  }
 
   sendEmail() {
     const contato: Contato = new Contato(this.nome, this.email, this.mensagem);
